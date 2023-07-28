@@ -14,7 +14,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0 | ^8.0"
+        "php": ">=5.4.0 | ^8.0",
+        "z38/swiss-payment": "^0.6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.2"

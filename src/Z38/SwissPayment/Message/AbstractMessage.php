@@ -53,11 +53,8 @@ abstract class AbstractMessage implements MessageInterface
 
         $doc = new \DOMDocument('1.0', 'UTF-8');
         $root = $doc->createElement('Document');
-        $root->setAttribute('xmlns', $schema);
-        if ($location !== null) {
-            $root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-            $root->setAttribute('xsi:schemaLocation', $schema.' '.$location);
-        }
+        $root->setAttribute('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
+        $root->setAttribute('xmlns', 'http://www.six-interbank-clearing.com/de/pain.001.001.03.ch.02.xsd');
         $root->appendChild($this->buildDom($doc));
         $doc->appendChild($root);
 
@@ -79,7 +76,7 @@ abstract class AbstractMessage implements MessageInterface
         $root->setAttribute('xmlns', $schema);
         if ($location !== null) {
             $root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-            $root->setAttribute('xsi:schemaLocation', $schema.' '.$location);
+            $root->setAttribute('xsi:schemaLocation', $schema . ' ' . $location);
         }
         $root->appendChild($this->buildDNBDom($doc));
         $doc->appendChild($root);
@@ -95,7 +92,7 @@ abstract class AbstractMessage implements MessageInterface
         return $this->asDom()->saveXML();
     }
 
-     /**
+    /**
      * {@inheritdoc}
      */
     public function asDNBXml()

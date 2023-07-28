@@ -127,7 +127,6 @@ class CustomerCreditTransfer extends AbstractMessage
         $header->appendChild(Text::xml($doc, 'CtrlSum', $transactionSum->format()));
         $initgParty = $doc->createElement('InitgPty');
         $initgParty->appendChild(Text::xml($doc, 'Nm', $this->initiatingParty));
-        $initgParty->appendChild($this->buildContactDetails($doc));
         $header->appendChild($initgParty);
         $root->appendChild($header);
 
